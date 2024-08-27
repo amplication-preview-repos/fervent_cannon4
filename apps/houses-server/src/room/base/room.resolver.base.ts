@@ -116,4 +116,12 @@ export class RoomResolverBase {
     }
     return result;
   }
+
+  @graphql.Query(() => String)
+  async GetRoomByHouse(
+    @graphql.Args("args")
+    args: string
+  ): Promise<string> {
+    return this.service.GetRoomByHouse(args);
+  }
 }

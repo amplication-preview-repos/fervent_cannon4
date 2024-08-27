@@ -187,4 +187,21 @@ export class RoomControllerBase {
       throw error;
     }
   }
+
+  @common.Get("/houses/:houseId/rooms")
+  @swagger.ApiOkResponse({
+    type: String,
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async GetRoomByHouse(
+    @common.Body()
+    body: string
+  ): Promise<string> {
+    return this.service.GetRoomByHouse(body);
+  }
 }

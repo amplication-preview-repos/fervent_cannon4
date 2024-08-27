@@ -124,4 +124,28 @@ export class HouseResolverBase {
 
     return results;
   }
+
+  @graphql.Query(() => String)
+  async GetAllHousesWithDetails(
+    @graphql.Args("args")
+    args: string
+  ): Promise<string> {
+    return this.service.GetAllHousesWithDetails(args);
+  }
+
+  @graphql.Query(() => String)
+  async HealthCheck(
+    @graphql.Args("args")
+    args: string
+  ): Promise<string> {
+    return this.service.HealthCheck(args);
+  }
+
+  @graphql.Query(() => String)
+  async Metrics(
+    @graphql.Args("args")
+    args: string
+  ): Promise<string> {
+    return this.service.Metrics(args);
+  }
 }

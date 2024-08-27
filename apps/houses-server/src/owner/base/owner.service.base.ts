@@ -34,4 +34,7 @@ export class OwnerServiceBase {
   async deleteOwner(args: Prisma.OwnerDeleteArgs): Promise<PrismaOwner> {
     return this.prisma.owner.delete(args);
   }
+  async GetHousesByOwner(args: string): Promise<string> {
+    throw new Error("Not implemented");
+  }
 }

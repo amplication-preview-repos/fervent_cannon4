@@ -126,4 +126,20 @@ export class BookingResolverBase {
     }
     return result;
   }
+
+  @graphql.Mutation(() => String)
+  async CreateBookingWithHouse(
+    @graphql.Args("args")
+    args: string
+  ): Promise<string> {
+    return this.service.CreateBookingWithHouse(args);
+  }
+
+  @graphql.Query(() => String)
+  async GetActiveBookings(
+    @graphql.Args("args")
+    args: string
+  ): Promise<string> {
+    return this.service.GetActiveBookings(args);
+  }
 }

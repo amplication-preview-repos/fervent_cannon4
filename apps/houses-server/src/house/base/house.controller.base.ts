@@ -309,4 +309,55 @@ export class HouseControllerBase {
       select: { id: true },
     });
   }
+
+  @common.Get("/houses/details")
+  @swagger.ApiOkResponse({
+    type: String,
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async GetAllHousesWithDetails(
+    @common.Body()
+    body: string
+  ): Promise<string> {
+    return this.service.GetAllHousesWithDetails(body);
+  }
+
+  @common.Get("/health")
+  @swagger.ApiOkResponse({
+    type: String,
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async HealthCheck(
+    @common.Body()
+    body: string
+  ): Promise<string> {
+    return this.service.HealthCheck(body);
+  }
+
+  @common.Get("/metrics")
+  @swagger.ApiOkResponse({
+    type: String,
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async Metrics(
+    @common.Body()
+    body: string
+  ): Promise<string> {
+    return this.service.Metrics(body);
+  }
 }

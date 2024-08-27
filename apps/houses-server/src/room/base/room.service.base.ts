@@ -46,4 +46,7 @@ export class RoomServiceBase {
       })
       .house();
   }
+  async GetRoomByHouse(args: string): Promise<string> {
+    throw new Error("Not implemented");
+  }
 }

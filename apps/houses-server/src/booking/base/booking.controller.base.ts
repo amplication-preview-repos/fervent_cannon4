@@ -194,4 +194,38 @@ export class BookingControllerBase {
       throw error;
     }
   }
+
+  @common.Post("/bookings/with-house")
+  @swagger.ApiOkResponse({
+    type: String,
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async CreateBookingWithHouse(
+    @common.Body()
+    body: string
+  ): Promise<string> {
+    return this.service.CreateBookingWithHouse(body);
+  }
+
+  @common.Get("/bookings/active")
+  @swagger.ApiOkResponse({
+    type: String,
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async GetActiveBookings(
+    @common.Body()
+    body: string
+  ): Promise<string> {
+    return this.service.GetActiveBookings(body);
+  }
 }

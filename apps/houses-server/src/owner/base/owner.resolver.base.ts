@@ -92,4 +92,12 @@ export class OwnerResolverBase {
       throw error;
     }
   }
+
+  @graphql.Query(() => String)
+  async GetHousesByOwner(
+    @graphql.Args("args")
+    args: string
+  ): Promise<string> {
+    return this.service.GetHousesByOwner(args);
+  }
 }

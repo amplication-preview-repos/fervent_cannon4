@@ -48,4 +48,10 @@ export class BookingServiceBase {
       })
       .house();
   }
+  async CreateBookingWithHouse(args: string): Promise<string> {
+    throw new Error("Not implemented");
+  }
+  async GetActiveBookings(args: string): Promise<string> {
+    throw new Error("Not implemented");
+  }
 }

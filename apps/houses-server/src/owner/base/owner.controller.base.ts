@@ -136,4 +136,21 @@ export class OwnerControllerBase {
       throw error;
     }
   }
+
+  @common.Get("/owners/:ownerId/houses")
+  @swagger.ApiOkResponse({
+    type: String,
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async GetHousesByOwner(
+    @common.Body()
+    body: string
+  ): Promise<string> {
+    return this.service.GetHousesByOwner(body);
+  }
 }

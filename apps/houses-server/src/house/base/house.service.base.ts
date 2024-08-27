@@ -61,4 +61,13 @@ export class HouseServiceBase {
       })
       .rooms(args);
   }
+  async GetAllHousesWithDetails(args: string): Promise<string> {
+    throw new Error("Not implemented");
+  }
+  async HealthCheck(args: string): Promise<string> {
+    throw new Error("Not implemented");
+  }
+  async Metrics(args: string): Promise<string> {
+    throw new Error("Not implemented");
+  }
 }
